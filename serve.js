@@ -27,8 +27,6 @@ app.post('/createUser', (req, res)=> {
 
 app.post('/login', (req, res, next)=>{
     const { password, username: user } = req.body
-
-    console.log(password, user, users[user])
     if((users[user]) && (bcrypt.compareSync(password, users[user].password))){
         const token = jwt.sign({
             "disciplinas": "AAS",
